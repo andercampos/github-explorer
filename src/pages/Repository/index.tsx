@@ -39,13 +39,13 @@ const Repository: React.FC = () => {
   const { params } = useRouteMatch<RepositoryParams>();
 
   useEffect(() => {
-    api.get(`repos/${params.repository}`).then((response) => {
+    api.get(`repos/${params.repository}`).then(response => {
       setRepository(response.data);
     });
   }, [params.repository]);
 
   useEffect(() => {
-    api.get(`repos/${params.repository}/issues`).then((response) => {
+    api.get(`repos/${params.repository}/issues`).then(response => {
       setIssues(response.data);
     });
   }, [params.repository]);
@@ -90,10 +90,10 @@ const Repository: React.FC = () => {
       )}
 
       <Issues>
-        {issues.map((issue) => (
+        {issues.map(issue => (
           <a
             key={issue.id}
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
             href={issue.html_url}
           >
